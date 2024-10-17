@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NFS Heat</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="icon" href="images/p8.jpg">
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                height: 100%;
+                font-family: Arial, sans-serif;
+                overflow: auto;
+            }
+            video {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+                object-fit: cover;
+                transform: translate(-50%, -50%);
+                filter: blur(3px) brightness(50%);
+            }
+            .content-container {
+                position: relative;
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 50px;
+                border-radius: 10px;
+                color: #fff;
+                text-align: justify;
+                line-height: 1.8;
+            }
+            h1 {
+                text-align: center;
+                color: white;
+                font-size: 3rem;
+                margin-bottom: 20px;
+            }
+            p {
+                font-size: 1.1rem;
+                margin-bottom: 20px;
+                color: white;
+            }
+            .video-iframe {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 20px;
+            }
+            iframe {
+                border: none;
+            }
+            .buy-now-container {
+                text-align: center;
+                margin-top: 30px;
+            }
+            .ads-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: rgba(255, 255, 255, 0.804);
+                color: black;
+                height: 100px;
+                border-radius: 10px;
+                padding: 10px;
+                text-align: center;
+            }
+            ::-webkit-scrollbar {
+                width: 12px;
+            }
+            ::-webkit-scrollbar-track {
+                background: #333;
+            }
+            ::-webkit-scrollbar-thumb {
+                background-color: #555;
+                border-radius: 6px;
+                border: 3px solid #333;
+            }
+            ::-webkit-scrollbar-thumb:hover {
+                background-color: #999;
+            }
+        </style>
+    </head>
+    <body>
+        <video autoplay muted loop>
+            <source src="videos/nfs_heat.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="content-container">
+            <h1>Need For Speed Heat</h1>
+            <p>Need for Speed Heat, released in November 2019 by Ghost Games, is a high-octane racing game that brings the Need for Speed franchise back to its roots, focusing on the underground street racing culture. Set in the fictional open-world city of Palm City, NFS Heat offers a dynamic experience that blends day and night racing, allowing players to compete in sanctioned daytime races while engaging in illegal street races at night. The game revitalizes the series with its emphasis on car customization, thrilling chases, and a vibrant cityscape, creating an immersive environment for racing enthusiasts</p>
+            <p>At the core of NFS Heat is the dual racing system that divides gameplay into two distinct modes: day and night. During the day, players can participate in legal races to earn cash and reputation in official racing events. However, as night falls, the game transforms into a dangerous world of underground street racing, where players earn reputation ("Rep") by evading the police and winning races. The risk-reward system at night is particularly exhilarating, as the higher a player's Rep level, the more aggressive the police become, leading to intense car chases and the threat of losing everything if caught. This system adds a strategic layer to the game, forcing players to balance their desire for Rep with the increasing danger.</p>
+            <div class="ads-container my-3">
+                <h2>Google Ad's here</h2>
+            </div>
+            <p>Customization, a hallmark of the Need for Speed series, is front and center in NFS Heat. Players have the freedom to modify their cars to match their personal style, with a wide range of options for performance tuning, visual upgrades, and aesthetic changes. From adjusting the car's handling and speed to selecting custom paint jobs, body kits, and decals, NFS Heat allows for extensive car personalization. The ability to fine-tune vehicles to suit different racing conditions—whether high-speed sprints or drifting through tight corners—adds depth to the gameplay, making each race feel unique.</p>
+            <div class="video-iframe">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/9ewiJJe_nYI?si=J9x-CN9aRfQcr3l0&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <p>The game's setting, Palm City, is inspired by the vibrant culture and neon-lit streets of Miami. The city is a sprawling open world, featuring a mix of urban environments, industrial areas, and scenic coastal roads, providing a diverse range of locations for players to explore and race through. Palm City’s dynamic weather system and day-night cycle create a constantly changing atmosphere that enhances the overall experience. Whether racing under the bright Florida sun or tearing through rain-soaked streets at night, the city feels alive, contributing to the immersive world of NFS Heat.</p>
+            <div class="ads-container my-3">
+                <h2>Google Ad's here</h2>
+            </div>
+            <p>One of the standout features of NFS Heat is the return of police pursuits, a classic element in Need for Speed games. At night, the police play a significant role, and their presence adds tension to every race. The longer players stay on the streets, the more heat they attract, resulting in increasingly difficult encounters with the authorities. Players must use speed, strategy, and environmental knowledge to escape, adding an exciting challenge to the night races. The police AI in NFS Heat is more advanced than in previous entries, with officers employing different tactics to stop racers, such as roadblocks and spike strips, which keeps the chase dynamic and unpredictable.</p>
+            <p>Despite its strengths, NFS Heat is not without its shortcomings. Some players have noted that while the game’s world is visually stunning, the narrative is somewhat lacking in depth. The storyline, which revolves around street racing culture and corrupt police officers, feels secondary to the racing action and customization elements. Additionally, the game’s progression system, while rewarding, can sometimes feel grind-heavy, requiring players to participate in multiple races and challenges to unlock certain cars and upgrades. These issues, however, are relatively minor compared to the overall fun and excitement the game offers.</p>
+            <div class="buy-now-container">
+                <button id="buyNowBtn" class="btn btn-primary">Buy Now</button>
+            </div>
+        </div>
+        <a href="index.html" style="color:white;"><---Back to home page</a>
+        <div class="modal fade" id="buyModal" tabindex="-1" aria-labelledby="buyModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="buyModalLabel">Checkout</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <p style="color:black;">Game Price: <span id="gamePrice"></span> Points</p>
+                        <hr>
+                        <p style="color:black;">Total Points: <span id="userPoints"></span> Points</p>
+                        <button id="buyBtn" class="btn btn-primary">Buy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="successModalLabel">Purchase Successful</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <p style="color:black;">Your content has been purchased!</p>
+                        <p style="color:black;">You will receive the redeem code in 24 hours to your mail.</p>
+                        <p style="color:black;">Remaining Balance: <span id="remainingBalance"></span> Points</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const buyNowBtn = document.getElementById('buyNowBtn');
+        const username = sessionStorage.getItem('username');
+        const checkoutModal = new bootstrap.Modal(document.getElementById('buyModal'));
+        const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+        const gamePrice = 25000;
+        const gameName = "Need for Speed Heat";
+        const priceElement = document.getElementById('gamePrice');
+        const pointsElement = document.getElementById('userPoints');
+        const remainingBalanceElement = document.getElementById('remainingBalance');
+        priceElement.textContent = gamePrice;
+        if (username) {
+            const userData = JSON.parse(localStorage.getItem(username));
+            const userPoints = userData.points || 0;
+            pointsElement.textContent = userPoints;
+            buyNowBtn.addEventListener('click', function () {
+                if (userPoints >= gamePrice) {
+                    checkoutModal.show();
+                } else {
+                    alert('Insufficient points');
+                }
+            });
+            document.getElementById('buyBtn').addEventListener('click', function () {
+                if (userPoints >= gamePrice) {
+                    const newPoints = userPoints - gamePrice;
+                    userData.points = newPoints;
+                    if (!userData.purchases) {
+                        userData.purchases = [];
+                    }
+                    const currentDateTime = new Date().toLocaleString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
+                    userData.purchases.push({ game: gameName, price: gamePrice, dateTime: currentDateTime });
+                    localStorage.setItem(username, JSON.stringify(userData));
+                    pointsElement.textContent = newPoints;
+                    remainingBalanceElement.textContent = newPoints;
+                    checkoutModal.hide();
+                    successModal.show();
+                } else {
+                    alert('Insufficient points');
+                }
+            });
+        } else {
+            buyNowBtn.addEventListener('click', function () {
+                window.location.href = 'login.html';
+            });
+        }
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+        const username = sessionStorage.getItem('username');
+        if (username) {
+            const userData = JSON.parse(localStorage.getItem(username));
+            const savedTextSize = userData.textSize || '16px';
+            document.body.style.fontSize = savedTextSize;
+        }
+    });
+    </script>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fall Guys</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="icon" href="images/p6.jpg">
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                height: 100%;
+                font-family: Arial, sans-serif;
+                overflow: auto;
+            }
+            video {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+                object-fit: cover;
+                transform: translate(-50%, -50%);
+                filter: blur(3px) brightness(50%);
+            }
+            .content-container {
+                position: relative;
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 50px;
+                border-radius: 10px;
+                color: #fff;
+                text-align: justify;
+                line-height: 1.8;
+            }
+            h1 {
+                text-align: center;
+                color: white;
+                font-size: 3rem;
+                margin-bottom: 20px;
+            }
+            p {
+                font-size: 1.1rem;
+                margin-bottom: 20px;
+                color: white;
+            }
+            .video-iframe {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 20px;
+            }
+            iframe {
+                border: none;
+            }
+            .buy-now-container {
+                text-align: center;
+                margin-top: 30px;
+            }
+            .ads-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: rgba(255, 255, 255, 0.804);
+                color: black;
+                height: 100px;
+                border-radius: 10px;
+                padding: 10px;
+                text-align: center;
+            }
+            ::-webkit-scrollbar {
+                width: 12px;
+            }
+            ::-webkit-scrollbar-track {
+                background: #333;
+            }
+            ::-webkit-scrollbar-thumb {
+                background-color: #555;
+                border-radius: 6px;
+                border: 3px solid #333;
+            }
+            ::-webkit-scrollbar-thumb:hover {
+                background-color: #999;
+            }
+        </style>
+    </head>
+    <body>
+        <video autoplay muted loop>
+            <source src="videos/fallguys.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="content-container">
+            <h1>Fall Guys</h1>
+            <p>Fall Guys: Ultimate Knockout, developed by Mediatonic and released in August 2020, took the gaming world by storm with its unique blend of chaos, humor, and accessibility. Unlike traditional battle royale games that emphasize combat and survival, Fall Guys is a bright and playful multiplayer game where players control jellybean-like characters competing in a series of wacky obstacle courses and mini-games. The game's simple mechanics, colorful design, and unpredictable nature have made it a hit among players of all ages.</p>
+            <div class="ads-container my-3">
+                <h2>Google Ad's here</h2>
+            </div>
+            <p>At its core, Fall Guys is a battle royale game, but with a twist. Instead of engaging in combat, players compete in up to five rounds of chaotic mini-games, where the goal is to survive and avoid elimination. These games range from races through obstacle courses to team-based challenges and survival games where players must avoid being knocked off platforms. The final round determines the last player standing, who is crowned the winner. The randomness of the games, combined with the often unpredictable movements of the characters, creates a fun and often hilarious experience for both players and spectators.</p>
+            <p>One of the key appeals of Fall Guys is its simplicity. The controls are straightforward—players can jump, dive, and grab—but mastering the timing and coordination required to navigate the chaotic courses can be challenging. This combination of easy-to-learn mechanics with difficult-to-master gameplay makes Fall Guys accessible to a wide audience, from casual players to competitive gamers. The game's lighthearted and non-violent nature also makes it appealing to families and younger audiences, setting it apart from other more intense battle royale games.</p>
+            <div class="video-iframe">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Mj86wPhhj9M?si=d3wX160WcuRmWV7I&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <p>Fall Guys’ vibrant art style and whimsical design contribute significantly to its charm. The characters, known as Fall Guys, are clumsy, jellybean-shaped creatures dressed in a variety of colorful costumes. The levels are equally playful, with bright colors, oversized obstacles, and exaggerated physics that add to the sense of fun and unpredictability. The game’s aesthetic is reminiscent of classic game shows like Wipeout and Takeshi’s Castle, where physical comedy and unexpected mishaps are a central part of the appeal.</p>
+            <p>Beyond its visual design, Fall Guys has fostered a strong community. The game’s social nature, combined with its emphasis on lighthearted competition, makes it perfect for streaming platforms like Twitch. Content creators and streamers have embraced the game, sharing their victories and hilarious defeats with millions of viewers. This, in turn, has contributed to the game's viral popularity, especially during its initial release. Mediatonic has also kept the game fresh by introducing new seasonal updates, costumes, and mini-games, ensuring that players have new content to enjoy and challenges to overcome.</p>
+            <div class="ads-container my-3">
+                <h2>Google Ad's here</h2>
+            </div>
+            <p>Despite its many strengths, Fall Guys has faced some challenges. One of the main criticisms early on was the lack of variety in mini-games, which led to some repetitiveness for players who spent long hours in the game. Additionally, issues with server stability and matchmaking were prevalent during the game’s peak popularity, causing frustration among players. However, Mediatonic has been responsive to player feedback, rolling out regular updates to address these issues and introducing new content to keep the experience exciting.</p>
+            <div class="buy-now-container">
+                <button id="buyNowBtn" class="btn btn-primary">Buy Now</button>
+            </div>
+        </div>
+        <a href="index.html" style="color:white;"><---Back to home page</a>
+        <div class="modal fade" id="buyModal" tabindex="-1" aria-labelledby="buyModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="buyModalLabel">Checkout</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <p style="color:black;">Game Price: <span id="gamePrice"></span> Points</p>
+                        <hr>
+                        <p style="color:black;">Total Points: <span id="userPoints"></span> Points</p>
+                        <button id="buyBtn" class="btn btn-primary">Buy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="successModalLabel">Purchase Successful</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <p style="color:black;">Your content has been purchased!</p>
+                        <p style="color:black;">You will receive the redeem code in 24 hours to your mail.</p>
+                        <p style="color:black;">Remaining Balance: <span id="remainingBalance"></span> Points</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const buyNowBtn = document.getElementById('buyNowBtn');
+        const username = sessionStorage.getItem('username');
+        const checkoutModal = new bootstrap.Modal(document.getElementById('buyModal'));
+        const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+        const gamePrice = 2000;
+        const gameName = "Fall Guys";
+        const priceElement = document.getElementById('gamePrice');
+        const pointsElement = document.getElementById('userPoints');
+        const remainingBalanceElement = document.getElementById('remainingBalance');
+        priceElement.textContent = gamePrice;
+        if (username) {
+            const userData = JSON.parse(localStorage.getItem(username));
+            const userPoints = userData.points || 0;
+            pointsElement.textContent = userPoints;
+            buyNowBtn.addEventListener('click', function () {
+                if (userPoints >= gamePrice) {
+                    checkoutModal.show();
+                } else {
+                    alert('Insufficient points');
+                }
+            });
+            document.getElementById('buyBtn').addEventListener('click', function () {
+                if (userPoints >= gamePrice) {
+                    const newPoints = userPoints - gamePrice;
+                    userData.points = newPoints;
+                    if (!userData.purchases) {
+                        userData.purchases = [];
+                    }
+                    const currentDateTime = new Date().toLocaleString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
+                    userData.purchases.push({ game: gameName, price: gamePrice, dateTime: currentDateTime });
+                    localStorage.setItem(username, JSON.stringify(userData));
+                    pointsElement.textContent = newPoints;
+                    remainingBalanceElement.textContent = newPoints;
+                    checkoutModal.hide();
+                    successModal.show();
+                } else {
+                    alert('Insufficient points');
+                }
+            });
+        } else {
+            buyNowBtn.addEventListener('click', function () {
+                window.location.href = 'login.html';
+            });
+        }
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+        const username = sessionStorage.getItem('username');
+        if (username) {
+            const userData = JSON.parse(localStorage.getItem(username));
+            const savedTextSize = userData.textSize || '16px';
+            document.body.style.fontSize = savedTextSize;
+        }
+    });
+    </script>
+</html>
