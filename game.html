@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Word Explosion</title>
+    <link rel="icon" href="dtlogo.jpg">
+    <style>
+        body {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(50,50,50);
+            color:white;
+        }
+        .game-area {
+            width: 100%;
+            height: 400px;
+            border: 1px solid #000;
+            position: relative;
+            overflow: hidden;
+            background-color: rgb(30,30,30);
+        }
+        .word {
+            position: absolute;
+            font-size: 24px;
+            color: white;
+        }
+        #timerDisplay {
+            font-size: 18px;
+            margin: 10px;
+        }
+        #inputBox {
+            width: 400px;
+            padding: 10px;
+            font-size: 18px;
+            background-color: rgb(50, 50, 50);
+            color: white;
+            border: none;
+        }
+        #inputBox:focus {
+            outline: none;
+        }
+        .return a{
+            color:white;
+            text-decoration:underline;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-decoration:underline;">Word Explosion</h1>
+    <div>
+        <label for="timerSelect">Choose Timer:</label>
+        <select id="timerSelect" style="background-color:rgb(50,50,50); color:white;">
+            <option value="30">30 seconds</option>
+            <option value="60">60 seconds</option>
+            <option value="120">120 seconds</option>
+        </select>
+    </div>
+    <div class="game-area" id="gameArea"></div>
+    <div id="timerDisplay">Time Remaining: <span id="timer">30</span> seconds</div>
+    <div>
+        <input type="text" id="inputBox" placeholder="Click here to start..." />
+        <div>Score: <span id="score">0</span></div>
+    </div><br>
+    <div class="return">
+        <a href="index.html">Back to home page</a>
+    </div>
+
+    <script>
+        let gameArea = document.getElementById('gameArea');
+        let inputBox = document.getElementById('inputBox');
+        let scoreDisplay = document.getElementById('score');
+        let timerDisplay = document.getElementById('timerDisplay');
+        let timerElement = document.getElementById('timer');
+        let score = 0;
+        let wordsTyped = 0; // Track the number of words typed correctly
+        let words = [];
+        let wordSpeed = 2;
+        let wordInterval = 1500;
+        let gameInterval, wordIntervalHandle; // To manage intervals
+        let timer; // Timer variable
+        let totalTime; // Total time in seconds
+        let startTime; // Track start time
+        let isGameRunning = false; // Flag to prevent multiple game runs
+            
+        // Function to create a new word and add it to the game area
+        function createWord() {
+            let wordText = generateRandomWord();
+            let word = document.createElement('div');
+            word.classList.add('word');
+            word.style.left = Math.random() * (gameArea.offsetWidth - 100) + 'px';
+            word.style.top = '0px'; // Start at the top of the game area
+            word.textContent = wordText;
+            word.word = wordText;
+            gameArea.appendChild(word);
+            words.push(word);
+        }
+        
+        // Function to generate a random word
+        function generateRandomWord() {
+            const wordList = ['mountain', 'river', 'forest', 'sky', 'flower', 'cloud'];
+            return wordList[Math.floor(Math.random() * wordList.length)];
+        }
+        
+        // Function to update the position of falling words
+        function updateGame() {
+            words.forEach(word => {
+                word.style.top = (parseInt(word.style.top || 0) + wordSpeed) + 'px';
+                if (parseInt(word.style.top) > gameArea.offsetHeight) {
+                    gameOver(); // Game over if word reaches the bottom
+                }
+            });
+        }
+        
+        // Function to handle game over
+        function gameOver() {
+            clearInterval(timer); // Stop the timer
+            clearInterval(wordIntervalHandle); // Stop word spawning
+            clearInterval(gameInterval); // Stop word falling
+            isGameRunning = false;
+        
+            let typingSpeed = wordsTyped / ((totalTime - parseInt(timerElement.textContent)) / 60); // Calculate typing speed (words per minute)
+        
+            let finalScore = score * typingSpeed; // Multiply score by typing speed
+            alert('Game Over! Final Score: ' + finalScore.toFixed(2));
+        
+            updatePointsInStorage(finalScore); // Update the user's score in localStorage
+        
+            resetGame();
+        }
+        
+        // Function to reset the game
+        function resetGame() {
+            score = 0;
+            wordsTyped = 0;
+            scoreDisplay.textContent = score;
+            words.forEach(word => gameArea.removeChild(word));
+            words = [];
+            inputBox.value = '';
+            inputBox.disabled = false; // Enable input for the new game
+        }
+        
+        // Handle user input (typed word)
+        inputBox.addEventListener('input', function() {
+            let typedWord = inputBox.value.trim();
+            words = words.filter(word => {
+                if (word.word === typedWord) {
+                    gameArea.removeChild(word);
+                    score++;
+                    wordsTyped++; // Increase typed words count
+                    scoreDisplay.textContent = score;
+                    inputBox.value = ''; // Clear the input
+                    return false;
+                }
+                return true;
+            });
+        });
+        
+        // Function to start the game
+        function startGame() {
+            if (isGameRunning) return; // Prevent multiple game starts
+            isGameRunning = true;
+        
+            totalTime = parseInt(document.getElementById('timerSelect').value); // Get selected timer value
+            startTime = new Date(); // Set the start time for calculating typing speed
+            timerElement.textContent = totalTime; // Set initial timer display
+            timerDisplay.style.display = 'block'; // Show timer display
+        
+            let timeLeft = totalTime;
+            timer = setInterval(() => {
+                timeLeft--;
+                timerElement.textContent = timeLeft; // Update timer display
+                if (timeLeft <= 0) {
+                    clearInterval(timer); // Stop the timer
+                    gameOver(); // Call game over function
+                }
+            }, 1000);
+        
+            wordIntervalHandle = setInterval(createWord, wordInterval); // Create words at regular intervals
+            gameInterval = setInterval(updateGame, 100); // Move words at regular intervals
+        }
+        
+        // Add event listener for timer select change
+        document.getElementById('timerSelect').addEventListener('change', function() {
+            if (!isGameRunning) { // Only reset if no game is in progress
+                totalTime = parseInt(this.value);
+                timerElement.textContent = totalTime; // Update timer display immediately
+            } else {
+                resetGame(); // Reset the game if timer is changed after it started
+            }
+        });
+        
+        // Start the game when the input box is focused
+        inputBox.addEventListener('focus', function() {
+            if (!isGameRunning) { // Start the game only if it's the first time
+                startGame();
+                inputBox.disabled = false; // Enable input for the game
+            }
+        });
+        
+        // Check if the user is logged in when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const username = sessionStorage.getItem('username');
+            
+            // Check if the user is logged in
+            if (!username) {
+                alert('Please log in to continue.');
+                window.location.href = 'login.html'; // Redirect to login page
+            }
+        });
+        
+        // Function to update the user's score in localStorage
+        function updatePointsInStorage(finalScore) {
+            const username = sessionStorage.getItem('username');
+        
+            if (username) {
+                // Get the user's data from localStorage
+                let userData = JSON.parse(localStorage.getItem(username)) || {};
+                let currentPoints = userData.points || 0;
+            
+                // Update points
+                let updatedPoints = currentPoints + Math.round(finalScore); // Add the new score to existing points
+                userData.points = updatedPoints;
+            
+                // Save updated user data back to localStorage
+                localStorage.setItem(username, JSON.stringify(userData));
+            
+                // Redirect to index.html to display updated score
+                window.location.href = 'index.html';
+            }
+        }
+    </script>
+</body>
+</html>
